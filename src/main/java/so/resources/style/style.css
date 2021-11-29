@@ -1,0 +1,115 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 19, 2021, 9:34:15 PM
+    Author     : juan
+*/
+
+@font-face {
+    font-family: Quicksand;
+    src: url("../font/Quicksand/static/Quicksand-Bold.ttf");
+}
+
+.background {
+    -fx-background: linear-gradient(to right top, #1f1d36, #27223d, #2f2843, #372d4a, #3f3351);
+}
+.text {
+    -fx-font-family: "Quicksand";
+}
+.menuBar {
+    -fx-background-color: #64ceba;
+    -fx-background-radius: 0 30 30 0;
+}
+.iconMenu {    
+    -fx-background-image: url("../image/change.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-color: transparent;      
+}
+.iconMenu1 {    
+    -fx-background-image: url("../image/execute.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-color: transparent;        
+}
+.iconMenu2 {    
+    -fx-background-image: url("../image/clear.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-color: transparent;        
+}
+.iconMenu:hover, .iconMenu1:hover, .iconMenu2:hover {    
+    -fx-background-color: #38afb7;    
+}
+.option {
+    -fx-background-color: #38afb7; /*#64ceba;*/
+    -fx-background-radius: 0 20 20 0;
+    visibility: inherit;
+}
+.add {
+    -fx-background-image: url("../image/add.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-color: transparent;  
+}
+.mfx-text-field {
+    -fx-text-fill: white;
+}
+.mfx-combo-box .mfx-label {
+    -mfx-text-fill: white !important;    
+}
+.box {
+    -fx-background-color: #64ceba;
+    -fx-background-radius: 70;
+}
+.box-fancy {
+    -fx-background-color: #38afb7;
+    -fx-background-radius: 0 50 50 0;
+}
+
+/* Stack Bar */
+.chart {
+    -fx-padding: 10;
+    -fx-background-color: white;   
+}
+.chart-content {
+    -fx-padding: 20;    
+}
+.chart-title {
+  -fx-text-fill: #38afb7;
+  -fx-font-size: 2.6em;
+} 
+.axis-label {
+  -fx-text-fill: #38afb7;
+} 
+.chart-legend {
+   -fx-background-color: white;
+   -fx-padding: 20;
+} 
+.chart-legend-item-symbol{
+   -fx-background-radius: 0;
+} 
+.chart-legend-item{
+    -fx-text-fill: #191970;
+}
+.chart-plot-background {
+    -fx-background-color: #e2ecfe;
+}
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines {
+    -fx-stroke: #3278fa;
+}
+.status-execute {
+    -fx-background-color: #4cb2ae;
+}
+.status-await1 {
+    -fx-background-color: #c0f196;
+}
+.status-await2 {
+    -fx-background-color: #89b961;
+}
+.status-ES {
+    -fx-background-color: #e8fef9;
+}

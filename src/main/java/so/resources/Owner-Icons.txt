@@ -1,0 +1,35 @@
+Icono de agregar:
+<a target="_blank" href="https://icons8.comundefined">Add</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de regresar:
+<a target="_blank" href="https://icons8.comundefined">Back</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de cambiar o de ejecutar aleatorio:
+<a target="_blank" href="https://icons8.comundefined">Change</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de limpiar:
+<a target="_blank" href="https://icons8.comundefined">Clear Symbol</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de Configuracion:
+<a target="_blank" href="https://icons8.com/icon/lwazDtZ1JG27/settings">Settings</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de Ejecutar:
+<a target="_blank" href="https://icons8.comundefined">Play</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de Notificacion:
+<a target="_blank" href="https://icons8.com/icon/T1sYxnlRUPaz/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Icono de Error:
+<a target="_blank" href="https://icons8.com/icon/tMwG1XpAnSDc/error">Error</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Demas Iconos:
+https://icons8.com/
+
+Requisitos:
+Java Openjdk 16
+Comando para ejecutar: java -jar nombre-jar
+Enlace de descarga de Openjdk 16: https://jdk.java.net/archive/
+Hay dos versiones de 16: La 16GA y la 16.0.1
+Pueden tomar cualquiera de las dos y descargarla
+
+La version minima del Openjdk luego la verifico pero creo que con Openjdk 11 en adelante

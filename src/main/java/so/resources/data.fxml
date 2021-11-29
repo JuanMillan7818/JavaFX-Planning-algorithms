@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXLabel?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="background" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="so.fxmlControllers.DataController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="7.0" layoutX="24.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="7.0" layoutX="24.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+      <Label alignment="CENTER" layoutX="24.0" layoutY="44.0" prefHeight="36.0" prefWidth="349.0" styleClass="text" text="Algoritmos de planificacion" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <MFXButton fx:id="back" layoutX="940.0" layoutY="50.0" onAction="#backFrame" rippleColor="#64ceba" rippleRadius="15.0" rippleRadiusMultiplier="10.0" text="Regresar" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </MFXButton>
+      <Pane layoutX="879.0" layoutY="465.0" prefHeight="216.0" prefWidth="200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4cb2ae" height="36.0" layoutX="14.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#89b961" height="36.0" layoutX="14.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c0f196" height="36.0" layoutX="14.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8fef9" height="36.0" layoutX="14.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <MFXLabel alignment="CENTER_LEFT" layoutX="50.0" layoutY="26.0" lineColor="#4cb2ae" text="Ejecucion">
+               <textFill>
+                  <Color red="0.9868420958518982" green="0.9868420958518982" blue="0.9868420958518982" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel alignment="CENTER_LEFT" layoutX="50.0" layoutY="72.0" lineColor="#c0f196" text="Espera en Cola 1">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel alignment="CENTER_LEFT" layoutX="50.0" layoutY="119.0" lineColor="#89b961" text="Espera en Cola 2">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel alignment="CENTER_LEFT" layoutX="50.0" layoutY="166.0" lineColor="#e8fef9" text="E/S">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+         </children>
+      </Pane>
+      <Label layoutX="421.0" layoutY="51.0" styleClass="text" text="Cola #1: Por prioridad" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="textQueue2" layoutX="709.0" layoutY="51.0" styleClass="text" text="Cola #2:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

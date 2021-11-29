@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXFilterComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXLabel?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="containerMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="background" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="so.fxmlControllers.InterfazController">
+   <children>
+      <Pane layoutX="830.0" layoutY="513.0" prefHeight="242.0" prefWidth="355.0" rotate="73.3" styleClass="box" />
+      <MFXLabel fx:id="textClear" layoutX="29.0" layoutY="420.0" lineStrokeWidth="0.0" prefHeight="30.0" styleClass="option" text="Limpiar todo">
+         <textFill>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </textFill>
+      </MFXLabel>
+      <MFXLabel fx:id="textConfig" layoutX="29.0" layoutY="360.0" lineStrokeWidth="0.0" prefHeight="30.0" styleClass="option" text="Ejecutar">
+         <textFill>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </textFill>
+      </MFXLabel>
+      <MFXLabel fx:id="textRandom" layoutX="29.0" layoutY="300.0" lineColor="#1f1d36" lineStrokeWidth="0.0" prefHeight="30.0" prefWidth="184.0" styleClass="option" text="Aplicar datos aleatorios">
+         <textFill>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </textFill>
+      </MFXLabel>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="7.0" layoutX="14.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="7.0" layoutX="14.0" layoutY="73.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="34.0" prefHeight="36.0" prefWidth="349.0" styleClass="text" text="Algoritmos de planificacion" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER" layoutY="250.0" prefHeight="249.0" prefWidth="40.0" spacing="30.0" styleClass="menuBar">
+         <children>
+            <Button fx:id="optionRandom" mnemonicParsing="false" onAction="#randomData" onMouseEntered="#viewInfoRandom" onMouseExited="#hiddenInfoRandom" prefHeight="30.0" prefWidth="30.0" styleClass="iconMenu" />
+            <Button fx:id="optionConfig" mnemonicParsing="false" onAction="#processData" onMouseEntered="#viewInfoConfig" onMouseExited="#hiddenInfoConfig" prefHeight="30.0" prefWidth="30.0" styleClass="iconMenu1" />
+            <Button fx:id="optionClear" mnemonicParsing="false" onAction="#clearAll" onMouseEntered="#viewInfoClear" onMouseExited="#hiddenInfoClear" prefHeight="30.0" prefWidth="30.0" styleClass="iconMenu2" />
+         </children>
+      </VBox>
+      <HBox layoutX="429.0" layoutY="52.0" prefHeight="53.0" prefWidth="645.0" spacing="45.0">
+         <children>
+            <MFXLabel lineColor="#64ceba" styleClass="text" text="Cola #1">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXFilterComboBox fx:id="queue1" lineColor="#64ceba" maxPopupHeight="100.0" prefHeight="27.0" prefWidth="140.0" promptText="Tipo" unfocusedLineColor="#949494" validated="true">
+               <styleClass>
+                  <String fx:value="mfx-text-field" />
+                  <String fx:value="mfx-label" />
+                  <String fx:value="mfx-icon-wrapper" />
+                  <String fx:value="mfx-font-icon" />
+               </styleClass>
+            </MFXFilterComboBox>
+            <MFXLabel lineColor="#64ceba" styleClass="text" text="Cola #2">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXFilterComboBox fx:id="queue2" lineColor="#64ceba" maxPopupHeight="100.0" prefHeight="27.0" prefWidth="140.0" promptText="Tipo" validated="true" />
+         </children>
+      </HBox>
+      <GridPane fx:id="containerGrid" alignment="CENTER" hgap="20.0" layoutX="230.0" layoutY="117.0" prefHeight="40.0" prefWidth="750.0" vgap="20.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="83.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <MFXLabel labelStyle="STYLE1" text="Proceso">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel labelStyle="STYLE1" text="T. Llegada" GridPane.columnIndex="1">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel labelStyle="STYLE1" text="R. CPU" GridPane.columnIndex="4">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel labelStyle="STYLE1" text="R. E/S" GridPane.columnIndex="3">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel labelStyle="STYLE1" text="R. CPU" GridPane.columnIndex="2">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXLabel fx:id="labelPriority" labelStyle="STYLE1" text="Prioridad" GridPane.columnIndex="5">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </textFill>
+            </MFXLabel>
+            <MFXButton fx:id="buttonAdd" buttonType="RAISED" ellipsisString="" onAction="#addProcess" prefHeight="40.0" prefWidth="40.0" rippleColor="#69ceba" styleClass="add" text=" " wrapText="true" GridPane.columnIndex="6" />
+         </children>
+      </GridPane>
+      <Label fx:id="showInfoPersonal" layoutX="-16.0" layoutY="665.0" prefHeight="63.0" prefWidth="47.0" rotate="-60.3" styleClass="box-fancy" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,4 @@
+--patch-module
+so=_
+--add-reads
+so=ALL-UNNAMED
