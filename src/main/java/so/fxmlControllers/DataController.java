@@ -86,7 +86,7 @@ public class DataController implements Initializable {
     }
        
     
-    public void paintData(Logic data, String queue1, String queue2) { 
+    public void paintData(Logic data, String queue1, String queue2) {         
         // Pongo el titulo de la cola #2
         textQueue2.setText(textQueue2.getText() + queue2);
         

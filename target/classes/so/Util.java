@@ -21,8 +21,8 @@ public class Util {
     public static MyProcess adminQueue1(String type, ArrayList<MyProcess> candidates){        
         switch(type) {
             case " Por Prioridad": {                 
-                // Proceso a ejecutar
-                MyProcess tmp = orderBypriority(candidates);                                               
+                // Proceso a ejecutar                
+                MyProcess tmp = orderBypriority(candidates);                   
                 if(tmp != null) { // Si hay candidato valido                    
                     if(tmp.getBurstStart() != 0) { // Rafagas restantes de la primera ola                    
                         tmp.setBurstStart(tmp.getBurstStart()-1); // Quito una rafaga
@@ -123,8 +123,8 @@ public class Util {
                 break;
             }
             
-            case " SJN": { // Algoritmo SJN                
-                MyProcess tmp = algorithmSJN(Logic.dataqueue2); // Proceso a ejecutar
+            case " SJN": { // Algoritmo SJN                    
+                MyProcess tmp = algorithmSJN(Logic.dataqueue2); // Proceso a ejecutar                
                 if(tmp != null) { // Si hay alguno disponible                    
                     if(tmp.getBurstStart() != 0) { // Primeras rafagas
                         tmp.setBurstStart(tmp.getBurstStart()-1);  // Quito una rafaga
@@ -427,7 +427,8 @@ public class Util {
     }
     
     public static void viewData(ArrayList<MyProcess> list) {        
-        for(MyProcess item : list) {            
+        for(MyProcess item : list) {   
+            System.out.println(item);
         }        
     }
     
@@ -449,7 +450,7 @@ public class Util {
         Random random = new Random(System.nanoTime());
         char id = 65;        
         int min = 1, max = 7;
-        amount = random.nextInt(9) + 2; // Aleatorio entre 2 - 10
+        amount = random.nextInt(9) + 2; // Aleatorio entre 2 - 10                
         for(int i=0; i<amount; i++) { // Generar procesos aleatorios
             int arrival, burstStart, burstEnd, burstES, priority;            
             arrival = random.nextInt(max); // Aleatorio entre 0 - 6 para T. llegada
@@ -460,7 +461,7 @@ public class Util {
             process.add(new MyProcess(Character.toString(id), arrival, burstStart, burstEnd, burstES, priority)); // Agrego el proceso con los datos generados
             id++; // Aumento para construir el id;
         }        
-        viewData(process);
+        //viewData(process);
         return process;
     }
 }

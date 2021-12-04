@@ -75,7 +75,7 @@ public class Logic {
         
         while(Logic.TIMECPU < Logic.LIMIT) {                                      
             ArrayList<MyProcess> candidates = processVisible(Logic.TIMECPU);  // Procesos visibles
-            Util.viewData(candidates);
+            //Util.viewData(candidates);
             
             if(candidates.isEmpty()) { // Si no hat candidatos
                 Logic.TIMECPU++;
@@ -108,7 +108,7 @@ public class Logic {
                 camino1 += tmp.getId();                               
                
             }else { // El procesador tiene la cola #2                                    
-                Util.viewData(Logic.dataqueue2);
+                //Util.viewData(Logic.dataqueue2);
                 // Proceso a ejecutar
                 MyProcess tmp = Util.adminQueue2(queue2);                   
                 
@@ -194,7 +194,7 @@ public class Logic {
         }       
     }
     
-    public boolean isEnableProcessForQueue1(ArrayList<MyProcess> candidates) {
+    public boolean isEnableProcessForQueue1(ArrayList<MyProcess> candidates) {        
         if(activeQueue) { // Si la cola #1 tiene la Ejecucion
             for(MyProcess item : candidates) { 
                 if(item.isFlagQueue()) { // Valido si existe algun proceso en espera en la Cola #1
@@ -205,9 +205,15 @@ public class Logic {
             return  false;
         }else {
             for(MyProcess item : candidates) {
+                if(item.isFlagQueue()) {
+                    activeQueue = !activeQueue;
+                    return true; 
+                }
+            }
+            for(MyProcess item : candidates) {               
                 if(!item.isFlagQueue()) { // Valido si existe algun proceso en espera en la Cola #2
                     return false;
-                }
+                }                
             } 
             activeQueue = !activeQueue; 
             return true;
@@ -240,10 +246,19 @@ public class Logic {
     public void auxData() { // Funcion para pruebas controladas
         /*
         myProcess.add(new MyProcess("A", 0, 2, 2, 3, 2));
-        myProcess.add(new MyProcess("B", 1, 3, 1, 2, 1));
+        myProcess.add(new MyProcess("B", 1, 3, 1, 2, 1));       
         myProcess.add(new MyProcess("C", 2, 1, 1, 1, 3));
         */
-        
+        /*
+        myProcess.add(new MyProcess("A", 3, 5, 1, 1, 2));
+        myProcess.add(new MyProcess("B", 6, 4, 5, 1, 5));       
+        */
+        /*
+        myProcess.add(new MyProcess("A", 4, 4, 1, 4, 3));
+        myProcess.add(new MyProcess("B", 3, 5, 5, 1, 3));       
+        myProcess.add(new MyProcess("C", 0, 3, 6, 1, 3));
+        myProcess.add(new MyProcess("D", 3, 1, 6, 1, 4));
+        */
         /*
         myProcess.add(new MyProcess("A", 0, 2, 1, 3, 2));
         myProcess.add(new MyProcess("B", 1, 2, 1, 2, 1));
@@ -262,25 +277,26 @@ public class Logic {
         myProcess.add(new MyProcess("C", 1, 3, 1, 3, 0));
         myProcess.add(new MyProcess("D", 4, 2, 3, 2, 2));        
         */
-        
+        /*
         myProcess.add(new MyProcess("A", 2, 3, 2, 2, 0));
         myProcess.add(new MyProcess("B", 3, 2, 2, 4, 1));
         myProcess.add(new MyProcess("C", 5, 1, 2, 1, 0));
         myProcess.add(new MyProcess("D", 6, 3, 2, 2, 2));        
         myProcess.add(new MyProcess("E", 7, 1, 2, 3, 2));
         myProcess.add(new MyProcess("F", 10, 4, 2, 1, 1));
-        myProcess.add(new MyProcess("G", 12, 2, 2, 2, 0));   
+        myProcess.add(new MyProcess("G", 12, 2, 2, 2, 0)); 
+        */
         /*
         myProcess.add(new MyProcess("H", 0, 4, 2, 3, 0));
         myProcess.add(new MyProcess("I", 3, 2, 2, 2, 1));
         myProcess.add(new MyProcess("J", 3, 5, 2, 2, 0));
         */
-        /*
+        
         myProcess.add(new MyProcess("A", 0, 4, 2, 3, 0));
         myProcess.add(new MyProcess("B", 3, 2, 2, 2, 1));
         myProcess.add(new MyProcess("C", 3, 5, 2, 2, 0));
         myProcess.add(new MyProcess("D", 2, 1, 2, 1, 2)); 
-        */
+        
         /*
         myProcess.add(new MyProcess("A", 1, 1, 1, 1, 1));
         myProcess.add(new MyProcess("B", 1, 1, 1, 1, 1));
