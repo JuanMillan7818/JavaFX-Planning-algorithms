@@ -18,10 +18,10 @@ public class MyProcess implements Cloneable {
     private int priority;
    
     // Datos resultantes para la tabla
-    private int timeFinal;
-    private int timeService;
-    private int timeInstant;
-    private float indexService;    
+    private float timeFinal;
+    private float timeService;
+    private float timeInstant;
+    private float indexService;       
    
     // Variables auxilares
     private int burstExecute;
@@ -141,27 +141,27 @@ public class MyProcess implements Cloneable {
         this.counterBusy = counterBusy;
     } 
 
-    public int getTimeFinal() {
+    public float getTimeFinal() {
         return timeFinal;
     }
 
-    public void setTimeFinal(int timeFinal) {
+    public void setTimeFinal(float timeFinal) {
         this.timeFinal = timeFinal;
     }
 
-    public int getTimeService() {
+    public float getTimeService() {
         return timeService;
     }
 
-    public void setTimeService(int timeService) {
+    public void setTimeService(float timeService) {
         this.timeService = timeService;
     }
 
-    public int getTimeInstant() {
+    public float getTimeInstant() {
         return timeInstant;
     }
 
-    public void setTimeInstant(int timeInstant) {
+    public void setTimeInstant(float timeInstant) {
         this.timeInstant = timeInstant;
     }
 
@@ -179,7 +179,7 @@ public class MyProcess implements Cloneable {
 
     public void setLastExecucion(int lastExecucion) {
         this.lastExecucion = lastExecucion;
-    }       
+    }        
     
     @Override
     public Object clone() throws CloneNotSupportedException{

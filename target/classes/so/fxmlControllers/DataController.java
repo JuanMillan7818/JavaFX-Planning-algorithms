@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -31,6 +32,7 @@ import so.App;
 import so.GanttChart;
 import so.Logic;
 import so.MyProcess;
+import so.Util;
 
 /**
  * FXML Controller class
@@ -151,8 +153,9 @@ public class DataController implements Initializable {
       
     public void tableView(ArrayList<MyProcess> data) {                
         // Instancio la tabla
-        tableProcess = new MFXTableView<>();
-        ObservableList<MyProcess> listProcess = FXCollections.observableArrayList(data);
+        tableProcess = new MFXTableView<>();        
+            
+        ObservableList<MyProcess> listProcess = FXCollections.observableArrayList(data);        
         
         // Creo columnas
         MFXTableColumn<MyProcess> nameProcess = new MFXTableColumn<>("Proceso", Comparator.comparing(MyProcess::getId));
@@ -164,22 +167,67 @@ public class DataController implements Initializable {
         MFXTableColumn<MyProcess> TFinalProcess = new MFXTableColumn<>("Tiempo Final", Comparator.comparing(MyProcess::getTimeFinal));
         MFXTableColumn<MyProcess> TWaitProcess = new MFXTableColumn<>("Tiempo de Servicio", Comparator.comparing(MyProcess::getTimeService));
         MFXTableColumn<MyProcess> TInstantProcess = new MFXTableColumn<>("Instante", Comparator.comparing(MyProcess::getTimeInstant));
-        MFXTableColumn<MyProcess> IndexProcess = new MFXTableColumn<>("Indice del proceso", Comparator.comparing(MyProcess::getIndexService));
+        MFXTableColumn<MyProcess> IndexProcess = new MFXTableColumn<>("Indice del proceso", Comparator.comparing(MyProcess::getIndexService));        
         
         
-        // Configuracion de las columnas
-        nameProcess.setRowCellFunction(process -> new MFXTableRowCell(process.getId()));
-        arrivalProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getArrival())));
-        burstStartProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getBurstStart())));
-        burstESProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getBurstES())));
-        burstEndProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getBurstEnd())));
-        priorityProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getPriority())));
-        TFinalProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getTimeFinal())));
-        TWaitProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getTimeService())));
-        TInstantProcess.setRowCellFunction(process -> new MFXTableRowCell(Integer.toString(process.getTimeInstant())));
-        IndexProcess.setRowCellFunction(process -> new MFXTableRowCell(Float.toString(process.getIndexService())));
+        // Configuracion de las columnas con filas
+        nameProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(process.getId());
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        arrivalProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(                        
+                    (process.getArrival() == -1) ? "" : Integer.toString(process.getArrival()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        burstStartProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(
+                    (process.getBurstStart() == -1) ? "" : Integer.toString(process.getBurstStart()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        burstESProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(
+                    (process.getBurstES() == -1) ? "" : Integer.toString(process.getBurstES()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        burstEndProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(
+                    (process.getBurstEnd() == -1) ? "" : Integer.toString(process.getBurstEnd()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        priorityProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(
+                    (process.getPriority() == -1) ? "" : Integer.toString(process.getPriority()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        TFinalProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(
+                    (process.getTimeFinal() == -1) ? "" : Float.toString(process.getTimeFinal()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            }); 
+        TWaitProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(Float.toString(process.getTimeService()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        TInstantProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(Float.toString(process.getTimeInstant()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });
+        IndexProcess.setRowCellFunction(process -> {
+                MFXTableRowCell cell = new MFXTableRowCell(Float.toString(process.getIndexService()));
+                cell.setRowAlignment(Pos.CENTER);
+                return cell;
+            });        
                 
-                    
         // Agrego datos a la tabla
         tableProcess.setItems(listProcess);
         
@@ -207,6 +255,19 @@ public class DataController implements Initializable {
         TWaitProcess.setMinWidth(140);
         TInstantProcess.setMinWidth(90);
         IndexProcess.setMinWidth(120);
+        
+        // Posicion de las cabeceras de las columnas
+        nameProcess.setColumnAlignment(Pos.CENTER);
+        arrivalProcess.setColumnAlignment(Pos.CENTER);
+        burstStartProcess.setColumnAlignment(Pos.CENTER);
+        burstEndProcess.setColumnAlignment(Pos.CENTER);
+        burstESProcess.setColumnAlignment(Pos.CENTER);
+        priorityProcess.setColumnAlignment(Pos.CENTER);
+        TFinalProcess.setColumnAlignment(Pos.CENTER);
+        TWaitProcess.setColumnAlignment(Pos.CENTER);
+        TInstantProcess.setColumnAlignment(Pos.CENTER);
+        IndexProcess.setColumnAlignment(Pos.CENTER);
+        
         
         // Contenedor con scroll
         MFXScrollPane scroll = new MFXScrollPane(tableProcess);

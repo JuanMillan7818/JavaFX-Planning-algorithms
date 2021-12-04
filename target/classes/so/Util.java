@@ -365,19 +365,37 @@ public class Util {
     }
     
     public static ArrayList<MyProcess> joinData(ArrayList<MyProcess> source, HashMap<String, Integer> resul) {
+        float average1 = 0, average2 = 0, average3 = 0;
+        DecimalFormat aux = new DecimalFormat("####.00"); // Objeto para redondear y aproximar la division del indice
+        DecimalFormatSymbols symbol = new DecimalFormatSymbols(); // Objeto para evitar problemas con los Simbolos de ',' y '.' segun el SO
+        symbol.setDecimalSeparator('.'); // Indicar que la separacion es por punto decimal
+        aux.setDecimalFormatSymbols(symbol); // Agregarle la configuracion al objeto de DecimalFormat
+        
         for(MyProcess item : source) { // Recorro la lista final de procesos
             item.setTimeFinal(resul.get(item.getId())); // Doy el tiempo final de cpu
             item.setTimeService(resul.get(item.getId()) - item.getArrival()); // Tiempo de servicio
             item.setTimeInstant(item.getTimeService() - 
-                    (item.getBurstStart()+item.getBurstES()+item.getBurstEnd())); //             
-            DecimalFormat aux = new DecimalFormat("####.00"); // Objeto para redondear y aproximar la division del indice
-            DecimalFormatSymbols symbol = new DecimalFormatSymbols(); // Objeto para evitar problemas con los Simbolos de ',' y '.' segun el SO
-            symbol.setDecimalSeparator('.'); // Indicar que la separacion es por punto decimal
-            aux.setDecimalFormatSymbols(symbol); // Agregarle la configuracion al objeto de DecimalFormat
+                    (item.getBurstStart()+item.getBurstES()+item.getBurstEnd())); //                                     
+            
             float index = (float) (item.getBurstStart()+item.getBurstEnd()) / item.getTimeService(); // Indice del proceso              
             index = Float.parseFloat(aux.format(index)); // Darle formato al decimal            
-            item.setIndexService(index); // Lo almaceno el indice
+            item.setIndexService(index); // Lo almaceno el indice  
+            // Datos para el promedio
+            average1 += item.getTimeService();
+            average2 += item.getTimeInstant();
+            average3 += item.getIndexService();            
         }
+        
+        // Promedios        
+        MyProcess tmp = new MyProcess("", -1, -1, -1, -1, -1);
+        tmp.setTimeFinal(-1);
+        tmp.setTimeService(Float.parseFloat(aux.format(average1 / source.size())));
+        tmp.setTimeInstant(Float.parseFloat(aux.format(average2 / source.size())));
+        tmp.setIndexService(Float.parseFloat(aux.format(average3 / source.size())));
+        
+        // Agrego el objeto que tiene unicamente los promedios
+        source.add(tmp);
+        
         return source;
     }
     
@@ -397,6 +415,15 @@ public class Util {
            }
         }
         return source;
+    }
+    
+    public static void average(ArrayList<MyProcess> list) {
+        float average1 = 0, average2 = 0, average3 = 0;
+        for(MyProcess item : list) {
+            average1 += item.getTimeService();
+            average2 += item.getTimeInstant();
+            average3 += item.getIndexService();
+        }
     }
     
     public static void viewData(ArrayList<MyProcess> list) {        

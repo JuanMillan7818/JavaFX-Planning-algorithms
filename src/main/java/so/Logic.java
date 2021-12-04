@@ -141,7 +141,7 @@ public class Logic {
         
         // Retomar los datos de tiempos de espera ....
         Util.joinData(dataOrigin, allTimeProcess); // Limpio datos basura o incorrectos
-        this.controller.tableView(dataOrigin);
+        this.controller.tableView(dataOrigin); // Construyo la tabla
     }             
     
     public void queueES(int cpu, MyProcess process) {        
