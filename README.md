@@ -10,3 +10,7 @@ Desktop application that applies some of the scheduling algorithms such as FCFS,
 # Requirements
 * Java Openjdk version 11 onwards, recommended version Openjdk 16.
 * Command to run: java -jar 'jar-name'
+
+
+# Application visualization
+![alt text] (https://github.com/JuanMillan7818/JavaFX-Planning-algorithms/blob/main/src/main/java/so/resources/image/app1.png)
