@@ -13,4 +13,4 @@ Desktop application that applies some of the scheduling algorithms such as FCFS,
 
 
 # Application visualization
-![alt text] (https://github.com/JuanMillan7818/JavaFX-Planning-algorithms/blob/main/src/main/java/so/resources/image/app1.png)
+![app1](https://user-images.githubusercontent.com/47467105/144716183-77cdf6c9-f6dd-47ac-8b3c-d59343ae6cf9.png)
